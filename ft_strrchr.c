@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:59:40 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/19 14:37:38 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/19 14:40:29 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
 	i = 0;
 	while (s[i])
+		i++;
+	while (i >= 0)
 	{
 		if (s[i] == c)
 			return ((char *)&s[i]);
-		i++;
+		i--;
 	}
 	if (c == '\0')
 		return ((char *)&s[i]);
@@ -31,6 +33,6 @@ char	*ft_strchr(const char *s, int c)
 
 int	main(void)
 {
-	printf("%s\n", ft_strchr("Salut", '\0'));
-	printf("%s", strchr("Salut", '\0'));
+	printf("%s\n", ft_strrchr("SalutSalut", 'S'));
+	printf("%s", strrchr("SalutSalut", 'S'));
 }
