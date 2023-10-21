@@ -6,31 +6,28 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:27:47 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/19 15:19:02 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/21 15:59:29 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int res;
-	size_t i;
+	size_t	i;
 
 	i = 0;
-	res = 0;
 	while (s1[i] && s2[2] && i < n)
 	{
 		if (s1[i] != s2[i])
 			return (s1[i] - s2[i]);
 		i++;
-		if (i == n)
-			return (0);
 	}
+	if (i == n)
+		return (0);
 	return (s1[i] - s2[i]);
 }
-
+/*
 int	main(void)
 {
 	char	*s1 = "Salut";
@@ -49,3 +46,4 @@ int	main(void)
 	printf("%d\n", strncmp(s5, s6, n));
 
 }
+*/

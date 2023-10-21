@@ -10,22 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-void	*ft_bzero(void *str, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*strcp;
 
-	strcp = str;
+	strcp = s;
 	while (n > 0)
 	{
 		*strcp = '\0';
 		strcp++;
 		n--;
 	}
-	return (str);
 }
 /*
 int	main(void)

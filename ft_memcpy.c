@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memcpy.c                                           :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:57:28 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/19 09:34:29 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/21 15:59:10 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
@@ -28,7 +26,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
+/*
 int	main(void)
 {
 	char str1[] = "Life is a bitch";
@@ -39,3 +37,4 @@ int	main(void)
 	printf("%s", (char *)ft_memcpy(str1, str2, sizeof(str2)));
 //	puts(memcpy(str3, str4, sizeof(str4)));
 }
+*/

@@ -6,13 +6,11 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:14:51 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/19 10:56:38 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/21 15:59:13 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -23,7 +21,7 @@ void	*ft_memset(void *s, int c, size_t n)
 		((char *)s)[i++] = c;
 	return (s);
 }
-
+/*
 int	main(void)
 {
 	char	str[50];
@@ -32,3 +30,4 @@ int	main(void)
 	puts(str);
 	printf("%s", (char *) ft_memset(str, '$', 7));
 }
+*/

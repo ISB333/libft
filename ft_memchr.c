@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/18 11:59:40 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/21 15:59:32 by adesille         ###   ########.fr       */
+/*   Created: 2023/10/20 10:58:55 by adesille          #+#    #+#             */
+/*   Updated: 2023/10/21 16:41:34 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size )
 {
-	int	i;
+	char	*memblock;
+	size_t		i;
 
+	memblock = (char *)memoryBlock;
 	i = 0;
-	while (s[i])
-		i++;
-	while (i >= 0)
+	while (memblock[i] && i < size)
 	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-		i--;
+		if (memblock[i] == searchedChar)
+			return ((char *)&memblock[i]);
+		i++;
 	}
-	if (c == '\0')
-		return ((char *)&s[i]);
+	if (searchedChar == '\0')
+		return ((char *)&memblock[i]);
 	return (NULL);
 }
 /*
 int	main(void)
 {
-	printf("%s\n", ft_strrchr("SalutSalut", 'S'));
-	printf("%s", strrchr("SalutSalut", 'S'));
+	const char str[] = "https://www.tutorialspoint.com";
+	const char ch = '.';
+	char *ret;
+
+	ret = ft_memchr(str, ch, 8);
+	printf("String after |%c| is - |%s|\n", ch, ret);
 }
 */
