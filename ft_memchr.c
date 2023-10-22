@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 10:58:55 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/21 16:41:34 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/22 16:48:13 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size )
 {
 	char	*memblock;
-	size_t		i;
+	size_t	i;
 
 	memblock = (char *)memoryBlock;
 	i = 0;

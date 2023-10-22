@@ -6,12 +6,11 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:54:50 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/21 15:59:23 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/22 16:47:50 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 size_t	ft_strlcpy(char *dest, char *src, unsigned int size)
 {

@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:57:28 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/21 15:59:10 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/22 12:27:57 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	destcpy = (char *)dest;
 	srccpy = (char *)src;
+	if (destcpy == NULL && srccpy == NULL)
+		return (NULL);
 	while (n > 0)
 	{
 		*destcpy++ = *srccpy++;

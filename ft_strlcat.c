@@ -6,12 +6,11 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:54:50 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/21 16:12:20 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/22 14:57:46 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

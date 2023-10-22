@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:14:51 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/21 15:59:13 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/22 16:47:26 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (n-- > 0)
