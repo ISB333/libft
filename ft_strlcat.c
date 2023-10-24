@@ -6,31 +6,60 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:54:50 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/24 22:40:57 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/24 23:32:48 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
+/**/
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	unsigned int	count;
-	unsigned int	count2;
-	unsigned int	i;
+	unsigned int	dstlen;
+	unsigned int	srclen;
+	// unsigned int	i;
+	char			*newdest;
 
-	i = 0;
-	count = ft_strlen(dst);
-	count2 = ft_strlen((char *)src);
-	if (size <= count)
-		return (size + ft_strlen((char *)src));
-	while (src[i] && i < size - 1)
-	{
-		dst[count + i] = src[i];
-		i++;
-	}
-	dst[count + i] = '\0';
-	return (count + count2);
+	newdest = dst;
+	dstlen = ft_strlen(dst);
+	srclen = ft_strlen((char *)src);
+	if (size <= dstlen)
+		return (size + srclen);
+	// i = 0;
+	// while (src[i] && i < size - dstlen - 1)
+	// {
+	// 	dst[dstlen + i] = src[i];
+	// 	i++;
+	// }
+	// dst[dstlen + 1] = '\0';
+	ft_strlcpy(newdest, dst, size);
+	ft_strlcpy(&newdest[dstlen], src, size - dstlen);
+	return (dstlen + srclen);
 }
+*/
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	unsigned int	dstlen;
+	unsigned int	srclen;
+	// unsigned int	i;
+	char			*newdest;
+
+	newdest = dst;
+	dstlen = ft_strlen(dst);
+	srclen = ft_strlen((char *)src);
+	if (size <= dstlen)
+		return (size + srclen);
+	// i = 0;
+	// while (src[i] && i < size - dstlen - 1)
+	// {
+	// 	dst[dstlen + i] = src[i];
+	// 	i++;
+	// }
+	// dst[dstlen + 1] = '\0';
+	ft_strlcpy(newdest, dst, size);
+	ft_strlcpy(&newdest[dstlen], src, size - dstlen);
+	return (dstlen + srclen);
+}
+
 /*
 int	main(void)
 {
