@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:54:50 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/24 09:20:51 by isb3             ###   ########.fr       */
+/*   Updated: 2023/10/24 12:55:38 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	src_len;
 
-	src_len = strlen(src);
-	if (NULL == dst || NULL == src || !size)
+	src_len = ft_strlen(src);
+	if (dst == NULL || src == NULL || !size)
 		return (src_len);
 	while (*src && --size)
 		*dst++ = *src++;
