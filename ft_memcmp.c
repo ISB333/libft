@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 11:22:10 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/23 17:02:31 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/24 22:21:06 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,38 +21,38 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	str1 = (char *)s1;
 	str2 = (char *)s2;
-	while (str1[i] && str2[2] && i < n)
+	while (i < n)
 	{
-		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
+		if ((unsigned char)str1[i] != (unsigned char)str2[i])
+			return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 		i++;
 	}
 	if (i == n)
 		return (0);
-	return (str1[i] - str2[i]);
+	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 }
 /*
 int main(void)
 {
-	char str1[15] = "dfgfdg";
-	char str2[15] = "abcde";
+	char (unsigned char)str1[15] = "dfgfdg";
+	char (unsigned char)str2[15] = "abcde";
 	int ret;
 	int ret2;
 
-	ret = ft_memcmp(str1, str2, 3);
+	ret = ft_memcmp((unsigned char)str1, (unsigned char)str2, 3);
 	if (ret > 0)
-		printf("str2 is less than str1\n");
+		printf("(unsigned char)str2 is less than (unsigned char)str1\n");
 	else if (ret < 0)
-		printf("str1 is less than str2\n");
+		printf("(unsigned char)str1 is less than (unsigned char)str2\n");
 	else
-		printf("str1 is equal to str2\n");
+		printf("(unsigned char)str1 is equal to (unsigned char)str2\n");
 
-	ret2 = memcmp(str1, str2, 3);
+	ret2 = memcmp((unsigned char)str1, (unsigned char)str2, 3);
 	if (ret2 > 0)
-		printf("str2 is less than str1\n");
+		printf("(unsigned char)str2 is less than (unsigned char)str1\n");
 	else if (ret2 < 0)
-		printf("str1 is less than str2\n");
+		printf("(unsigned char)str1 is less than (unsigned char)str2\n");
 	else
-		printf("str1 is equal to str2\n");
+		printf("(unsigned char)str1 is equal to (unsigned char)str2\n");
 }
 */

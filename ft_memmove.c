@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 12:16:00 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/23 16:44:01 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/24 22:01:10 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	int d;
 	int s;
 	
-	d = strlen(dest) + 1;
-	s = strlen(src) + 1;
+	d = ft_strlen(dest) + 1;
+	s = ft_strlen(src) + 1;
 	if (d > s)
 	{
 		printf("%s\n", (char *)ft_memcpy((void *)src, dest, d));

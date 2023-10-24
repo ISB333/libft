@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 13:51:42 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/24 15:56:28 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/24 22:01:18 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s)
 	char	*str;
 	int		size;
 
-	size = strlen(s) + 1;
+	size = ft_strlen(s) + 1;
 	str = malloc(size);
 	if (str == NULL)
 		return (NULL);
