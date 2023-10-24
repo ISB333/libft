@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:23:18 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/24 16:28:13 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/24 18:13:07 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*str;
 
+	//cadeau , sinon tes strlen segfault avec des pointeurs NULL 
+	if(s1 == NULL || s2 == NULL)
+		return (NULL);
 	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (str == NULL)
 		return (NULL);

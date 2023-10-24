@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:05:19 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/24 15:57:53 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/24 16:58:09 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 // *1* // len = 0; || start = 0;
 // *2* // len > start || start > len
 // *3* //
-
-//###// 
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
