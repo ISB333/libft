@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:54:50 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/22 14:57:46 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/24 09:26:32 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	unsigned int	count;
 	unsigned int	count2;
 	unsigned int	i;
-	unsigned int	j;
 
-	j = 0;
 	i = 0;
 	count = ft_strlen(dst);
 	count2 = ft_strlen((char *)src);

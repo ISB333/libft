@@ -3,33 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:54:50 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/22 16:47:50 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/24 09:20:51 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	unsigned int	count;
-	unsigned int	i;
+	size_t	src_len;
 
-	count = 0;
-	i = 0;
-	while (src[count])
-		count++;
-	if (size < 1)
-		return (0);
-	while (src[i] && i > size - 1)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (count);
+	src_len = strlen(src);
+	if (NULL == dst || NULL == src || !size)
+		return (src_len);
+	while (*src && --size)
+		*dst++ = *src++;
+	*dst = '\0';
+	return (src_len);
 }
 /*
 int	main(void)
