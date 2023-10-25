@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:05:19 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/25 19:15:35 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:25:10 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	size = (ft_strlen(s));
-	if (!s)
+	if (s == NULL)
 		return (NULL);
 	if (start >= ((unsigned int)size))
 		return (ft_strdup(""));

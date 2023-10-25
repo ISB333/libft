@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 18:27:09 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/25 22:10:56 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:17:01 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
-void	ft_putend1_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+// char	*ft_itoa(int n);
 
 #endif

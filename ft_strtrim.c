@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:49:21 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/25 22:08:01 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:24:21 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	int	len;
 
+	if (s1 == NULL)
+		return (NULL);
 	while (*s1 && ft_strchr(set, *s1))
 		s1++;
 	len = ft_strlen(s1);

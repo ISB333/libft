@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putend1_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 21:52:52 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/25 21:55:50 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:20:47 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putend1_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
+	if (s == NULL)
+		return;
 	write(fd, s, ft_strlen(s));
-	write(1, "\n", 1);
+	write(fd, "\n", 1);
 }
