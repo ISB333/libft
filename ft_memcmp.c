@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 11:22:10 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/25 12:36:53 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:30:42 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
+	size_t			i;
 	unsigned char	*str1;
 	unsigned char	*str2;
 
