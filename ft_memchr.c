@@ -6,27 +6,25 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 10:58:55 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/22 16:48:13 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:21:22 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size )
+void	*ft_memchr(const void *s, int c, size_t size )
 {
-	char	*memblock;
+	char	*str;
 	size_t	i;
 
-	memblock = (char *)memoryBlock;
+	str = (char *)s;
 	i = 0;
-	while (memblock[i] && i < size)
+	while (i < size)
 	{
-		if (memblock[i] == searchedChar)
-			return ((char *)&memblock[i]);
+		if (str[i] == (char)c)
+			return ((char *)&str[i]);
 		i++;
 	}
-	if (searchedChar == '\0')
-		return ((char *)&memblock[i]);
 	return (NULL);
 }
 /*

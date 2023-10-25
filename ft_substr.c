@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:05:19 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/24 16:58:09 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:32:57 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[len] = '\0';
 	return (str);
 }
-/*
+
 int	main(void)
 {
-	printf("%s\n", ft_substr("YoMan", 2, 5));
+	printf("%s\n", ft_substr("YoMan", 2, 15));
 	printf("%s\n", ft_substr("", 0, 0));
-//	printf("%s", ft_substr("Hola", 4294967295, 0));
+	printf("%s", ft_substr("Hola", 4294967295, 0));
 }
-*/

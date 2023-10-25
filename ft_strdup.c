@@ -6,12 +6,11 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 13:51:42 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/24 22:01:18 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/25 10:52:13 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h" 
-
 
 char	*ft_strdup(const char *s)
 {
