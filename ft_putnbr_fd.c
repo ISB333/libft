@@ -1,37 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 13:51:42 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/25 22:09:37 by adesille         ###   ########.fr       */
+/*   Created: 2023/10/25 22:11:00 by adesille          #+#    #+#             */
+/*   Updated: 2023/10/25 22:29:39 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
+#include "libft.h"
 
-char	*ft_strdup(const char *s)
+void	ft_putchar(int c, int fd)
 {
-	char	*str;
-	int		size;
-
-	size = ft_strlen(s) + 1;
-	str = malloc(size);
-	if (str == NULL)
-		return (NULL);
-	ft_strlcpy(str, s, size);
-	return (str);
+	write(fd, &c, 1);
 }
-/*
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	int nbr;
+
+	nbr = 0;
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	if (n < 0)
+		ft_putchar('-', fd);
+	if (n > 10)
+	{
+		mod = n % 10;
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar(nbr, fd);
+	}
+	if (n < 10)
+	{
+		n -= 48;
+		ft_putchar(n, fd);
+	}
+}
+
 int	main(void)
 {
-	const char *s = "Life is good";
-	const char *s2 = "Life is good";
-
-	printf("\e[0;33m%s\n", strdup(s));
-	printf("\e[0;35m%s\n",ft_strdup(s2));
-//	free(&s2);
+	ft_putnbr_fd(3, 1);
 }
-*/

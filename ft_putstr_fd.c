@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/22 13:51:42 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/25 22:09:37 by adesille         ###   ########.fr       */
+/*   Created: 2023/10/25 21:47:48 by adesille          #+#    #+#             */
+/*   Updated: 2023/10/25 21:52:02 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h" 
+#include "libft.h"
 
-char	*ft_strdup(const char *s)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*str;
-	int		size;
-
-	size = ft_strlen(s) + 1;
-	str = malloc(size);
-	if (str == NULL)
-		return (NULL);
-	ft_strlcpy(str, s, size);
-	return (str);
+	write(fd, s, ft_strlen(s));
 }
 /*
 int	main(void)
 {
-	const char *s = "Life is good";
-	const char *s2 = "Life is good";
-
-	printf("\e[0;33m%s\n", strdup(s));
-	printf("\e[0;35m%s\n",ft_strdup(s2));
-//	free(&s2);
+	ft_putstr_fd("YoMan", 1);
 }
 */

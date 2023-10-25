@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:59:22 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/25 16:30:05 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/25 19:48:17 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	j = 0;
 
 	littlelen = ft_strlen(little);
+	if ((big == NULL || little == NULL) && len == 0)
+		return (0);
 	if (littlelen == 0)
 		return ((char *)&big[i]);
 	if ((char *)little == (void *)0)

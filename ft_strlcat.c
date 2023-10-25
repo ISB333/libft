@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:54:50 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/24 23:35:46 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/25 19:47:45 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	unsigned int	dstlen;
 	unsigned int	srclen;
-	char			*newdest;
 
-	newdest = dst;
+	if ((dst == NULL || src == NULL) && size == 0)
+		return (0);
 	dstlen = ft_strlen(dst);
 	srclen = ft_strlen((char *)src);
 	if (size <= dstlen)

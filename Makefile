@@ -6,7 +6,7 @@
 #    By: adesille <adesille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 09:53:02 by adesille          #+#    #+#              #
-#    Updated: 2023/10/25 16:25:23 by adesille         ###   ########.fr        #
+#    Updated: 2023/10/25 22:10:30 by adesille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 		ft_strrchr.c ft_strncmp.c ft_memchr.c \
 		ft_memcmp.c ft_calloc.c ft_strdup.c \
 		ft_substr.c ft_atoi.c  ft_strnstr.c \
-		ft_strjoin.c ft_strtrim.c
+		ft_strjoin.c ft_strtrim.c \
+		ft_putchar_fd.c ft_putstr_fd.c ft_putend1_fd.c \
+		ft_putnbr_fd.c 
 
 OBJS = ${SRCS:.c=.o}
 
@@ -44,12 +46,16 @@ fclean : clean
 
 re :	fclean ${NAME}
 
-test :
-	clear
-	${CC} ${Cflags} -c main.c -o main.o
-	${CC} ${Cflags} -o main main.o -L. -lft -lbsd
-	@echo "\n======================[   tests    ]======================"
-	@./main
-	@echo "\n======================[ all done ! ]======================"
+# test :
+# 	clear
+# 	${CC} ${Cflags} -c main.c -o main.o
+# 	${CC} ${Cflags} -o main main.o -L. -lft -lbsd
+# 	@echo "\n======================[   tests    ]======================"
+# 	@./main
+# 	@echo "\n======================[ all done ! ]======================"
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .PHONY : all clean fclean re
