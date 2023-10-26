@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 14:58:27 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/25 16:58:48 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:49:47 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,15 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int	*arr;
+	int		*arr;
+	size_t	overflowpro;
 
-	arr = malloc(nmemb * size);
+	if (!nmemb || !size)
+		return (malloc(0));
+	overflowpro = size * nmemb;
+	if (overflowpro / nmemb != size)
+		return (NULL);
+	arr = malloc(overflowpro);
 	if (arr == NULL)
 		return (NULL);
 	ft_memset(arr, 0, nmemb * size);
