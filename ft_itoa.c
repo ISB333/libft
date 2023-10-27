@@ -6,58 +6,88 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:11:00 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/26 15:12:36 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/27 01:23:18 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	digitcount(int n)
+int digitcount(int n)
 {
-	int	temp;
-	int	digitnbr;
+    int temp;
+    int digitlen;
 
-	temp = n;
-	digitnbr = 1;
-	while (temp >= 10) 
-	{
-		temp /= 10;
-		digitnbr++;
-	}
-	return (digitnbr);
+    temp = n;
+    digitlen = 1;
+    if (temp < 0)
+        temp = -temp;
+    while (temp >= 10)
+    {
+        temp /= 10;
+        digitlen++;
+    }
+    return (digitlen);
 }
 
-void	ft_itoa(int n, int fd)
+char *ft_putnbr(int n, int digitlen, char *numbers)
 {
-	int digitnbr;
+    int end = digitlen - 1;
+    int trueend = digitlen;
 
-	digitnbr = digitcount(n);
-	ft_putnbr_fd(digitnbr, fd);
+    if (n < 0)
+    {
+        numbers[0] = '-';
+        n = -n;
+    }
+    while (end >= 0)
+    {
+        numbers[end] = n % 10 + '0';
+        n /= 10;
+        end--;
+    }
+    numbers[trueend] = '\0'; 
+    return (numbers);
 }
 
-void	ft_putchar(int c, int fd)
+char *ft_itoa(int n)
 {
-	write(fd, &c, 1);
-}
+    int digitlen;
+    char *numbers;
 
-void	ft_putnbr_fd(int n, int fd)
-{
-	if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0)
-	{
-		ft_putchar('-', fd);
-		n = -n;
-	}
-	if (n >= 10)
-		ft_putnbr_fd(n / 10, fd);
-	ft_putchar(n % 10 + '0', fd);
-}
+    if (n == -2147483648)
+        return ("-2147483648");
+    digitlen = digitcount(n);
+    if (n < 0)
+        numbers = malloc(digitlen + 2);
+    else
+        numbers = malloc(digitlen + 1);
+    if (numbers == NULL)
+        return (NULL);
 
-int	main(void)
-{
-	ft_itoa(147483647, 1);
+    numbers = ft_putnbr(n, digitlen, numbers);
+    return (numbers);
 }
+/*
+int main(void)
+{
+	// printf("%s\n", ft_itoa(1000034));
+	printf("%s\n", ft_itoa(-10004));
+	printf("%s\n", ft_itoa(2147483647));
+	printf("%s\n", ft_itoa(-2147483648));
+	printf("%s\n", ft_itoa(-623));
+	printf("%s\n", ft_itoa(156));
+	printf("%s\n", ft_itoa(-0));
+}
+*/
+/*
+int main(void)
+{
+    char *result = ft_itoa(-10004);
+    if (result != NULL) {
+        printf("%s\n", result);
+        free(result); // Remember to free allocated memory
+    }
+
+    return 0;
+}
+*/

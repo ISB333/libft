@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:26:55 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/26 12:04:03 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/27 00:35:48 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*str;
-	int 	i;
+	int		i;
 
 	i = 0;
 	if (!s)
