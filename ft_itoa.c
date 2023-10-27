@@ -6,13 +6,13 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:11:00 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/27 13:51:40 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/27 18:34:02 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	digitcount(int n)
+static int	digitcount(int n)
 {
 	int	temp;
 	int	digitlen;
@@ -29,7 +29,7 @@ int	digitcount(int n)
 	return (digitlen);
 }
 
-char	*ft_putnbr_pos(int n, int digitlen)
+static char	*ft_putnbr_pos(int n, int digitlen)
 {
 	int	end;
 	int	trueend;
@@ -50,7 +50,7 @@ char	*ft_putnbr_pos(int n, int digitlen)
 	return (numbers);
 }
 
-char	*ft_putnbr_neg(int n, int digitlen)
+static char	*ft_putnbr_neg(int n, int digitlen)
 {
 	int	end;
 	int	trueend;

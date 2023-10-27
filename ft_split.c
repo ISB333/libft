@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 01:25:07 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/27 15:22:44 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/27 19:38:25 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,40 +20,73 @@
 /// 4 /// 	strlcpy[str[i], s, colsize]
 ///////// rowsnbr--;
 
-char	*ft_del_count(const char *s, int c)
+static int	ft_del_rows(const char *s, int c)
 {
 	int	i;
+	int rows;
 
+	rows = 0;
 	i = 0;
 	while (s[i])
 	{
 		if (s[i] == (char)c)
-			return ((char *)&s[i]);
+			rows++;
 		i++;
 	}
-	if ((char)c == '\0')
-		return ((char *)&s[i]);
-	return (NULL);
+	return (rows);
+}
+
+static int	ft_rows_size2(const char *s, int c)
+{
+	int	i;
+	int rows;
+
+	rows = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return(ft_strlen(&s[i]));
+		i++;
+	}
+	return(0);
+}
+
+static int	ft_rows_size(const char *s, int c)
+{
+	int	i;
+	int rows_size;
+	int slen;
+
+	rows_size = 0;
+	i = 0;
+	slen = ft_strlen((char *)s);
+	while(*s)
+	{
+		s++;
+		printf("%d\n", slen - ft_rows_size2(s, c));
+	}
+	return (rows_size);
 }
 
 char	*ft_split(char const *s, char c)
 {
-	// char *str;
-	int i;
-	int count;
+	char **array;
+	int	rows;
 
-	i = 0;
-	count = 0;
-	count = ft_del_count(s, c);
-	printf("%d\n", count);
-	return((char *)s);
+	rows = ft_del_rows(s, c);
+	array = (char **)malloc(rows * sizeof(char *));
+	if (array == NULL)
+		return(NULL);
+	ft_rows_size(s, c);
+	return ((char *) s);
 }
 
 int main()
 {
 	const char	*input_string = "Hello World! How are you?";
 
-	printf("%s", ft_split(input_string, ' '));
+	printf("%s\n\n", ft_split(input_string, ' '));
 /*
     char		**result = ft_split(input_string, ' ');
 
