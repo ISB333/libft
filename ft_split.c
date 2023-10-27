@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 01:25:07 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/27 12:23:31 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/27 15:22:44 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,41 @@
 /// 4 /// 	strlcpy[str[i], s, colsize]
 ///////// rowsnbr--;
 
+char	*ft_del_count(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i++;
+	}
+	if ((char)c == '\0')
+		return ((char *)&s[i]);
+	return (NULL);
+}
+
 char	*ft_split(char const *s, char c)
 {
-	char *str;
-	
-	str = ft_strchr(s, c);
-	return(str);
+	// char *str;
+	int i;
+	int count;
+
+	i = 0;
+	count = 0;
+	count = ft_del_count(s, c);
+	printf("%d\n", count);
+	return((char *)s);
 }
 
 int main()
 {
 	const char	*input_string = "Hello World! How are you?";
+
+	printf("%s", ft_split(input_string, ' '));
+/*
     char		**result = ft_split(input_string, ' ');
 
     if (result == NULL) 
@@ -49,4 +73,5 @@ int main()
 
 	free(result);
 	return 0;
+*/
 }
