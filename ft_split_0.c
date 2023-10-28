@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_0.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 01:25:07 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/28 18:08:24 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/28 18:54:45 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ static int	ft_del_rows(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == (char)c)
-			rows++;
-			
+			rows++;	
 		i++;
 	}
 	return (rows);
@@ -53,14 +52,12 @@ static int	ft_rows_size(const char *s, int c)
 		if (s[i] == (char)c)
 		{
 			token++;
-			printf("i = %d\ntempi = %d\n", i, tempi);
-			if (token > 0)
-				printf("i - tempi = %d\n\n", i - tempi - 1);
+			printf("i = %d\ntempi = %d\ni - tempi = %d\n\n", i, tempi, i - tempi - 1); //Allocate memory for each row 
 			tempi = i;
 		}
 		i++;
 		if (s[i] == '\0')
-			printf("last word = %lu\n\n", ft_strlen(s) - tempi - 1);
+			printf("last word = %lu\n\n", ft_strlen(s) - tempi - 1); //Allocate memory for last row
 	}
 	return (rows_size);
 }
