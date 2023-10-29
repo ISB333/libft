@@ -6,18 +6,28 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 01:25:07 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/29 16:01:05 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/29 16:14:25 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /// FT0 /// count delimiters
-/// FT1 /// allocate number of rows + 2 (for last and NULL)
+/// FT1 /// allocate number of rows + 1 (for the NULL)
 /// FT2 /// allocate colsize
 /// FT3 /// copy into each row
 
+///*****/// TODO ///*****/// Have the exact delimiters numbers
+///*****/// TODO ///*****/// check the colsize
 
+///*****/// SECIAL CASES ///*****///
+// 1 // ft_split("hello!", 32:' ');
+// 2 // const char	*input_string2 = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
+///////  ft_split(input_string2, ' ');
+// 3 // ft_split("          ", ' ');
+// 4 // ft_plit("\0aa\0bbb", '\0');
+
+/*
 static int count_rows(const char *s, int c) {
     int count = 0;
     while (*s) {
@@ -73,7 +83,7 @@ char **ft_split(const char *s, char c) {
     char **array = allocate_memory(s, c, rows);
     return array;
 }
-/*
+
 int main() {
     const char *input_string2 = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
 
@@ -99,9 +109,6 @@ int main() {
 
 
 
-
-
-/*
 static int	ft_del_rows(const char *s, int c)
 {
 	size_t	i;
@@ -185,4 +192,3 @@ int main()
 	free(result);
     return(0);
 }
-*/
