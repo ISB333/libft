@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 14:58:27 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/26 15:49:47 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/29 14:31:42 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ft_memset(arr, 0, nmemb * size);
 	return (arr);
 }
-
 /*
 int	main(void)
 {

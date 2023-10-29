@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_0.c                                       :+:      :+:    :+:   */
+/*   ft_vsplit_1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 01:25:07 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/28 18:54:45 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/29 14:49:15 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,65 +22,73 @@
 
 static int	ft_del_rows(const char *s, int c)
 {
-	int	i;
-	int rows;
+	size_t	i;
+	size_t rows;
 
 	rows = 0;
 	i = 0;
 	while (s[i])
 	{
 		if (s[i] == (char)c)
-			rows++;	
+			rows++;
+			
 		i++;
 	}
+	if (rows == 0)
+		return (rows + 1);
 	return (rows);
 }
 
-static int	ft_rows_size(const char *s, int c)
+static char	**ft_rows_size(char **array, const char *s, int c)
 {
-	int	i;
-	int tempi;
-	int rows_size;
-	int token;
+	size_t	i;
+	size_t tempi;
+	size_t row;
 
-	rows_size = 0;
+	row = 0;
 	i = 0;
 	tempi = 0;
-	token = 0;
-	while (s[i])
+	while (s[i++])
 	{
 		if (s[i] == (char)c)
 		{
-			token++;
-			printf("i = %d\ntempi = %d\ni - tempi = %d\n\n", i, tempi, i - tempi - 1); //Allocate memory for each row 
-			tempi = i;
+			array[row] = malloc(i - tempi + 1);
+			if (!array[row])	
+				return (NULL);
+			ft_strlcpy(array[row++], &s[tempi], i - tempi + 1);
+			tempi = i + 1;
 		}
-		i++;
 		if (s[i] == '\0')
-			printf("last word = %lu\n\n", ft_strlen(s) - tempi - 1); //Allocate memory for last row
+		{
+			array[row] = malloc(ft_strlen(s) - tempi + 1);
+			// printf("%zu\n%zu\n%zu\n\n", ft_strlen(s) - tempi + 1, i);
+			ft_strlcpy(array[row], &s[tempi], ft_strlen(s) - tempi + 1);
+		}
 	}
-	return (rows_size);
+	return (array);
 }
 
-char	*ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char **array;
-	int	rows;
+	size_t	rows;
 
 	rows = ft_del_rows(s, c);
 	array = (char **)malloc(rows * sizeof(char *));
 	if (array == NULL)
 		return(NULL);
-	ft_rows_size(s, c);
-	return ((char *) s);
+	// if (rows == 1)
+	// 	return()
+	ft_rows_size(array, s, c);
+	return (array);
 }
-
+/*
 int main()
 {
 	const char	*input_string = "Hello World! How are you?";
 
-	printf("%s\n\n", ft_split(input_string, ' '));
-/*
+	// printf("%s\n\n", ft_split(input_string, ' '));
+
     char		**result = ft_split(input_string, ' ');
 
     if (result == NULL) 
@@ -88,7 +96,6 @@ int main()
 		printf("Memory allocation failed.\n");
 		return 1;
 	}
-
 	int i = 0;
 	while (result[i] != NULL) 
 	{
@@ -96,8 +103,7 @@ int main()
 		free(result[i]);
 		i++;
 	}
-
 	free(result);
 	return 0;
-*/
 }
+*/

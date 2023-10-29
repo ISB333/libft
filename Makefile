@@ -6,7 +6,7 @@
 #    By: adesille <adesille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 09:53:02 by adesille          #+#    #+#              #
-#    Updated: 2023/10/26 22:30:14 by adesille         ###   ########.fr        #
+#    Updated: 2023/10/29 14:35:15 by adesille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 		ft_strrchr.c ft_strncmp.c ft_memchr.c \
 		ft_memcmp.c ft_calloc.c ft_strdup.c \
 		ft_substr.c ft_atoi.c  ft_strnstr.c \
-		ft_strjoin.c ft_strtrim.c \
+		ft_strjoin.c ft_strtrim.c ft_split.c \
 		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 		ft_putnbr_fd.c ft_strmapi.c ft_striteri.c \
 		ft_itoa.c
