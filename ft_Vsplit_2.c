@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vsplit_1.c                                      :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 01:25:07 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/29 14:49:15 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/30 13:01:22 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,9 @@ static int	ft_del_rows(const char *s, int c)
 	{
 		if (s[i] == (char)c)
 			rows++;
-			
 		i++;
 	}
-	if (rows == 0)
-		return (rows + 1);
-	return (rows);
+	return (rows + 1);
 }
 
 static char	**ft_rows_size(char **array, const char *s, int c)
@@ -53,16 +50,18 @@ static char	**ft_rows_size(char **array, const char *s, int c)
 		if (s[i] == (char)c)
 		{
 			array[row] = malloc(i - tempi + 1);
-			if (!array[row])	
-				return (NULL);
+			if (!array[row])
+				free(array[row]);
 			ft_strlcpy(array[row++], &s[tempi], i - tempi + 1);
 			tempi = i + 1;
 		}
 		if (s[i] == '\0')
 		{
-			array[row] = malloc(ft_strlen(s) - tempi + 1);
+			array[row] = malloc(i - tempi + 1);
 			// printf("%zu\n%zu\n%zu\n\n", ft_strlen(s) - tempi + 1, i);
-			ft_strlcpy(array[row], &s[tempi], ft_strlen(s) - tempi + 1);
+			ft_strlcpy(array[row], &s[tempi], i - tempi + 1);
+			if (!array[row])
+				free(array[row]);
 		}
 	}
 	return (array);
@@ -74,6 +73,8 @@ char	**ft_split(char const *s, char c)
 	size_t	rows;
 
 	rows = ft_del_rows(s, c);
+	if (rows - 1 == ft_strlen(s))
+		rows = 1;
 	array = (char **)malloc(rows * sizeof(char *));
 	if (array == NULL)
 		return(NULL);
@@ -99,8 +100,11 @@ int main()
 	int i = 0;
 	while (result[i] != NULL) 
 	{
-		printf("%s\n", result[i]);
-		free(result[i]);
+		if (result[i] != NULL)
+		{
+			printf("%s\n", result[i]);
+			free(result[i]);
+		}
 		i++;
 	}
 	free(result);
