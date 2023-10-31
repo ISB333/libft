@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:08:46 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/30 16:45:59 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/31 15:31:05 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,18 @@ static	void freememory(char **array)
 
 static int	ft_del_rows(const char *s, int c)
 {
-	size_t	i;
-	size_t rows;
+	int i;
+	int rows;
 
 	rows = 0;
 	i = 0;
-	while (s[i])
+	while(*s)
 	{
-		if (s[i] == (char)c)
-			rows++;
-		i++;
+		while(*s++ != c && *s)
+			if(*s == c)
+				rows++;
 	}
+	return(rows);
 	if (rows == ft_strlen(s))
 		return (0);
 	return (rows + 1);
@@ -53,26 +54,27 @@ char	**ft_rows_size(char **array, const char *s, int c)
 	{
 		if (s[i] == (char)c)
 		{
-			array[row] = malloc(i - tempi + 1 * sizeof(char));
+			array[row] = (char *)malloc(i - tempi + 1 * sizeof(char));
 			if (array[row] == NULL)
 			{
 				freememory(array);
 				return (array);
 			}
-			ft_strlcpy(array[row], &s[tempi], i - tempi + 1);
+			array[row] = ft_substr(&s[tempi], tempi, i - tempi);
 			// printf("%s\n", array[row]);
 			row++;
 			tempi = i + 1;
 		}
 		if (s[i] == '\0')
 		{
-			array[row] = malloc(i - tempi + 1 * sizeof(char));
+			array[row] = (char *)malloc(i - tempi + 1 * sizeof(char));
 			if (array[row] == NULL)
 			{
 				freememory(array);
 				return (array);
 			}
-			ft_strlcpy(array[row], &s[tempi], i - tempi + 1);
+			array[row] = ft_substr(&s[tempi], tempi, i - tempi);
+			// ft_strlcpy(array[row], &s[tempi], i - tempi + 1);
 			// printf("%s\n\n", array[row]);
 		}
 	}
@@ -86,7 +88,7 @@ char	**ft_split(char const *s, char c)
 
 	rows = ft_del_rows(s, c);
 	if (rows == 0)
-		return (NULL);
+		return (0);
 	array = (char **)malloc(rows * sizeof(char *));
 	if (!array)
 		return(NULL);
@@ -96,11 +98,11 @@ char	**ft_split(char const *s, char c)
 /*
 int	main(void)
 {
-	char	*input_string = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
+	// char	*input_string = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
 
-	ft_split(input_string, ' ');
-	ft_split("Hello World! How are you?", ' ');
-	ft_split("hello!", ' ');
+	// ft_split(input_string, ' ');
+	// ft_split("Hello World! How are you?", ' ');
+	// ft_split("hello!", ' ');
 
 	// printf("%s\n\n\n", ft_split(input_string, ' '));
 	// printf("%s\n\n\n", ft_split("Hello World! How are you?", ' '));
@@ -108,5 +110,24 @@ int	main(void)
 
 	// printf("%s\n\n", ft_split("          ", ' ')); // RETURN NULL
 	// printf("%s\n\n", ft_split("\0aa\0bbb", '\0')); // RETURN NULL
+	// printf("%s\n\n", ft_split("\0aa\0bbb", '\0')); // RETURN NULL
+    char		**result = ft_split("Hello World! How are you?", ' ');
+
+    if (result == NULL) 
+	{
+		printf("Memory allocation failed.\n");
+		return 1;
+	}
+
+	int i = 0;
+	while (result[i] != NULL) 
+	{
+		printf("%s\n", result[i]);
+		free(result[i]);
+		i++;
+	}
+
+	free(result);
+	return 0;
 }
 */

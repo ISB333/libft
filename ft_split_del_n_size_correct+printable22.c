@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_del_n_size_correct+printable22.c          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:08:46 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/30 15:46:27 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/31 15:53:09 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// static	char	**freememory(char **array)
+// {
+// 	int i;
+
+// 	i = 0;
+// 	while(array[i])
+// 		free(array[i++]);
+// 	free(array);
+// 	return (array);
+// }
+
 static int	ft_del_rows(const char *s, int c)
 {
-	size_t	i;
-	size_t rows;
+	int i;
+	int rows;
 
 	rows = 0;
 	i = 0;
-	while (s[i])
+	while(s[i])
 	{
-		if (s[i] == (char)c)
-			rows++;
-		i++;
+		while(s[i++] != c && s[i])
+			if(s[i] == c)
+				rows++;
 	}
-	if (rows == ft_strlen(s))
+	if ((size_t)rows == ft_strlen(s))
 		return (0);
 	return (rows + 1);
 }
@@ -33,31 +44,30 @@ static int	ft_del_rows(const char *s, int c)
 void	ft_rows_size(const char *s, int c)
 {
 	size_t	i;
-	size_t tempi;
+	size_t start;
 	size_t row;
 
 	row = 0;
 	i = 0;
-	tempi = 0;
-	while (s[i++])
+	start = 0;
+	while (s[i])
 	{
-		if (s[i] == (char)c)
-		{
+		start = i;
+		while(s[i++] != c && s[i])
+			if(s[i] == c)
+			{
 			// array[row] = malloc(i - tempi + 1 * sizeof(char));
 			// ft_strlcpy(array[row], &s[tempi], i - tempi + 1);
-			printf("size = %lu\n", i - tempi + 1);
-			row++;
-			tempi = i + 1;
-		}
+				printf("size = %lu\n", i - start + 1);
+				row++;
+			}
 		if (s[i] == '\0')
 		{
 			// array[row] = malloc(i - tempi + 1 * sizeof(char));
 			// ft_strlcpy(array[row], &s[tempi], i - tempi + 1);
-			printf("size = %lu\n", i - tempi + 1);
+			printf("size = %lu\n", i - start + 1);
 		}
 	}
-	// array[row] = malloc(ft_strlen(s) - tempi + 1 * sizeof(char));
-	// printf("%zu\n%zu\n%zu\n\n", ft_strlen(s) - tempi + 1, tempi, row);
 }
 
 char	*ft_split(char const *s, char c)

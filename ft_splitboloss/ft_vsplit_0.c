@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_0.c                                       :+:      :+:    :+:   */
+/*   ft_vsplit_0.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 01:25:07 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/29 12:39:15 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:05:18 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static int	ft_rows_size(const char *s, int c)
 	return (rows_size);
 }
 
-char	*ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char **array;
 	int	rows;

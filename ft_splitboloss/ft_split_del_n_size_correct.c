@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_split_del_n_size_correct.c                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:08:46 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/30 15:46:27 by adesille         ###   ########.fr       */
+/*   Updated: 2023/10/31 13:05:45 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_rows_size(const char *s, int c)
 	// printf("%zu\n%zu\n%zu\n\n", ft_strlen(s) - tempi + 1, tempi, row);
 }
 
-char	*ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	// char **array;
 	size_t	rows;
