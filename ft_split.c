@@ -6,13 +6,13 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:08:46 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/31 15:31:05 by adesille         ###   ########.fr       */
+/*   Updated: 2023/11/01 17:44:54 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	void freememory(char **array)
+static	char	**freememory(char **array)
 {
 	int i;
 
@@ -20,6 +20,7 @@ static	void freememory(char **array)
 	while(array[i])
 		free(array[i++]);
 	free(array);
+	return (array);
 }
 
 static int	ft_del_rows(const char *s, int c)
@@ -29,56 +30,48 @@ static int	ft_del_rows(const char *s, int c)
 
 	rows = 0;
 	i = 0;
-	while(*s)
+	while(s[i])
 	{
-		while(*s++ != c && *s)
-			if(*s == c)
-				rows++;
+		while(s[i++] != c && s[i])
+			if(s[i] == c)
+				rows++;	
 	}
-	return(rows);
-	if (rows == ft_strlen(s))
+	// printf("len = %zu\n", ft_strlen(s));
+	if ((size_t)rows == ft_strlen(s))
 		return (0);
 	return (rows + 1);
 }
 
-char	**ft_rows_size(char **array, const char *s, int c)
+static char	**ft_rows_size(char **array, const char *s, int c)
 {
 	size_t	i;
-	size_t tempi;
+	size_t start;
 	size_t row;
 
 	row = 0;
 	i = 0;
-	tempi = 0;
-	while (s[i++])
+	start = 0;
+	while (s[i])
 	{
-		if (s[i] == (char)c)
-		{
-			array[row] = (char *)malloc(i - tempi + 1 * sizeof(char));
-			if (array[row] == NULL)
+		start = i;
+		while(s[i++] != c && s[i])
+			if(s[i] == c)
 			{
-				freememory(array);
-				return (array);
+				array[row] = ft_substr(&s[start], 0, i - start);
+				if(!array[row])
+					return(freememory(array));
+				// printf("size = %lu\n%s\n%s\n\n", i - start, &s[start], array[row]);
+				row++;
 			}
-			array[row] = ft_substr(&s[tempi], tempi, i - tempi);
-			// printf("%s\n", array[row]);
-			row++;
-			tempi = i + 1;
-		}
-		if (s[i] == '\0')
+		if (s[i] == '\0' && s[start] != c)
 		{
-			array[row] = (char *)malloc(i - tempi + 1 * sizeof(char));
-			if (array[row] == NULL)
-			{
-				freememory(array);
-				return (array);
-			}
-			array[row] = ft_substr(&s[tempi], tempi, i - tempi);
-			// ft_strlcpy(array[row], &s[tempi], i - tempi + 1);
-			// printf("%s\n\n", array[row]);
+			array[row] = ft_substr(&s[start], 0, i - start);
+			if(!array[row])
+				return(freememory(array));
+			// printf("size = %lu\n%s\n%s\n\n\n\n\n", i - start, &s[start], array[row]);
 		}
 	}
-	return (array);
+	return(array);
 }
 
 char	**ft_split(char const *s, char c)
@@ -86,13 +79,17 @@ char	**ft_split(char const *s, char c)
 	char **array;
 	size_t	rows;
 
+	if (s[0] == '\0')
+		return (NULL);
 	rows = ft_del_rows(s, c);
+	// printf("rows = %zu\n", rows);
 	if (rows == 0)
-		return (0);
+		return (NULL);
 	array = (char **)malloc(rows * sizeof(char *));
 	if (!array)
 		return(NULL);
 	ft_rows_size(array, s, c);
+	// printf("\n\n");
 	return (array);
 }
 /*
@@ -102,32 +99,22 @@ int	main(void)
 
 	// ft_split(input_string, ' ');
 	// ft_split("Hello World! How are you?", ' ');
+	// ft_split("     Hello World!      How are you?", ' ');
+	// ft_split("      split       this for   me  !       ", ' ');
 	// ft_split("hello!", ' ');
+	ft_split("xxxxxxxxhello!", 'x');
+	ft_split("hello!zzzzzzzz", 'z');
+	ft_split("\t\t\t\thello!\t\t\t\t", '\t');
+	ft_split("\0aa\0bbb", '0');
+	ft_split("split  ||this|for|me|||||!|", '|');
+	ft_split("      split       this for   me  !       ", ' ');
 
-	// printf("%s\n\n\n", ft_split(input_string, ' '));
-	// printf("%s\n\n\n", ft_split("Hello World! How are you?", ' '));
-	// printf("%s\n\n\n", ft_split("hello!", ' '));
-
+	// printf("%s\n\n", ft_split(input_string, ' '));
+	// printf("%s\n\n", ft_split("Hello World! How are you?", ' '));
+	// printf("%s\n\n", ft_split("     Hello World!      How are you?", ' '));
+	// printf("%s\n\n", ft_split("      split       this for   me  !       ", ' '));
+	// printf("%s\n\n", ft_split("hello!", ' '));
 	// printf("%s\n\n", ft_split("          ", ' ')); // RETURN NULL
 	// printf("%s\n\n", ft_split("\0aa\0bbb", '\0')); // RETURN NULL
-	// printf("%s\n\n", ft_split("\0aa\0bbb", '\0')); // RETURN NULL
-    char		**result = ft_split("Hello World! How are you?", ' ');
-
-    if (result == NULL) 
-	{
-		printf("Memory allocation failed.\n");
-		return 1;
-	}
-
-	int i = 0;
-	while (result[i] != NULL) 
-	{
-		printf("%s\n", result[i]);
-		free(result[i]);
-		i++;
-	}
-
-	free(result);
-	return 0;
 }
 */
