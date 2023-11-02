@@ -6,28 +6,42 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:08:46 by adesille          #+#    #+#             */
-/*   Updated: 2023/11/02 16:11:12 by adesille         ###   ########.fr       */
+/*   Updated: 2023/11/02 18:29:39 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_del_rows(const char *s, int c)
+// static void	freememory(char **array)
+// {
+// 	int i;
+
+// 	i = 0;
+// 	while(array[i])
+// 		free(array[i++]);
+// 	free(array);
+// }
+
+static size_t	ft_del_rows(const char *s, int c)
 {
-	int i;
-	int rows;
+	size_t i;
+	size_t rows;
 
 	rows = 0;
 	i = 0;
 	while(s[i])
 	{
 		while(s[i++] != c && s[i])
-			if(s[i] == c)
+		{
+			if(s[i] == c && s[i])
 				rows++;
+		}
+		if(s[i] == '\0' && s[i - 1] != c)
+			rows++;
 	}
 	if ((size_t)rows == ft_strlen(s))
 		return (0);
-	return (rows + 1);
+	return (rows);
 }
 
 static char  **ft_cut(char **array, char const *s, char c, size_t i)
@@ -44,14 +58,12 @@ static char  **ft_cut(char **array, char const *s, char c, size_t i)
 			k = i;
 			while (s[i] && s[i] != c)
 				i++;
-			// printf("%s\nstart = %zu\nend = %lu\n", &s[i], k, i - k);
 			array[j] = ft_substr(s, k, i - k);
 			if (!array[j]) 
 			{
 				free(array);
 				return(NULL);
 			}
-			// printf("%s\n\n\n", array[j]);
 			j++;
 		}
 	}
@@ -66,21 +78,23 @@ char  **ft_split(char const *s, char c)
 
 	i = 0;
 	if (!s)
-		return (NULL);
-	// printf("s len = %zu\n", ft_strlen(s + 1));
+		return (NULL);	
 	array = (char **)malloc((ft_del_rows(s, c) + 1) * sizeof(char *));
 	if (!array)
 		return (NULL);
 	ft_cut(array, s, c, i);
-	// printf("\n\n");
 	return (array);
 }
 /*
 int	main(void)
 {
-	char	*input_string = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
+	// char	*input_string = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
 
-	ft_split(input_string, ' ');
+	ft_split("  tripouille  42  ", ' ');
+	ft_split("Tripouille", ' ');
+	ft_split(" Tripouille  ", ' ');
+
+	// ft_split(input_string, ' ');
 	// ft_split("Hello World! How are you?", ' ');
 	// ft_split("     Hello World!      How are you?", ' ');
 	// ft_split("      split       this for   me  !       ", ' ');
