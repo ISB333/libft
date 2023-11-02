@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:54:50 by adesille          #+#    #+#             */
-/*   Updated: 2023/11/01 15:50:15 by adesille         ###   ########.fr       */
+/*   Updated: 2023/11/02 15:47:53 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,13 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	*dst = '\0';
 	return (src_len);
 }
-/*
-int	main(void)
-{
-	char	str1[] = "Life is a bitch";
-	char	str2[] = "Life is wonderful";
-	char	str3[] = "Life is a bitch";
-	char	str4[] = "Life is wonderful";
-	printf("%zu\n%s\n", ft_strlcpy(str1, str2, 0), str1);
-	printf("%zu\n%s", strlcpy(str3, str4, 0), str3);
-}
-*/
+
+// int	main(void)
+// {
+// 	char	str1[] = "Life is a bitch";
+// 	char	str2[] = "Life is wonderful";
+// 	char	str3[] = "Life is a bitch";
+// 	char	str4[] = "Life is wonderful";
+// 	printf("%zu\n%s\n", ft_strlcpy(NULL, str2, 0), str2);
+// 	// printf("%zu\n%s", strlcpy(NULL, str4, 5), str4);
+// }
