@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:11:00 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/27 18:34:02 by adesille         ###   ########.fr       */
+/*   Updated: 2023/11/02 19:05:43 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static int	digitcount(int n)
 
 static char	*ft_putnbr_pos(int n, int digitlen)
 {
-	int	end;
-	int	trueend;
+	int		end;
+	int		trueend;
 	char	*numbers;
 
 	numbers = malloc(digitlen + 1);
@@ -44,7 +44,7 @@ static char	*ft_putnbr_pos(int n, int digitlen)
 	{
 		numbers[end] = n % 10 + '0';
 		n /= 10;
-		end--;	
+		end--;
 	}
 	numbers[trueend] = '\0';
 	return (numbers);
@@ -52,8 +52,8 @@ static char	*ft_putnbr_pos(int n, int digitlen)
 
 static char	*ft_putnbr_neg(int n, int digitlen)
 {
-	int	end;
-	int	trueend;
+	int		end;
+	int		trueend;
 	char	*numbers;
 
 	numbers = malloc(digitlen + 1);
@@ -62,7 +62,7 @@ static char	*ft_putnbr_neg(int n, int digitlen)
 	end = digitlen - 1;
 	trueend = digitlen;
 	numbers[0] = '-';
-	n = -n;	
+	n = -n;
 	while (end > 0)
 	{
 		numbers[end] = n % 10 + '0';
@@ -75,8 +75,7 @@ static char	*ft_putnbr_neg(int n, int digitlen)
 
 char	*ft_itoa(int n)
 {
-	char *result;
-
+	char	*result;
 	int		digitlen;
 
 	if (n == -2147483648)
