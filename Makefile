@@ -6,7 +6,7 @@
 #    By: adesille <adesille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 09:53:02 by adesille          #+#    #+#              #
-#    Updated: 2023/10/29 14:35:15 by adesille         ###   ########.fr        #
+#    Updated: 2023/11/03 17:06:08 by adesille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,10 @@ SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 		ft_putnbr_fd.c ft_strmapi.c ft_striteri.c \
 		ft_itoa.c
 
-OBJS = ${SRCS:.c=.o}
+BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
+		ft_lstlast.c
+
+OBJS = 	${SRCS:.c=.o} ${BONUS:.c=.o}
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -31,7 +34,7 @@ RM = rm -f
 
 NAME = libft.a
 
-all:	${NAME}
+all :	${NAME}
 
 ${NAME}:	${OBJS}
 		ar rcs ${NAME} ${OBJS}
@@ -47,16 +50,12 @@ fclean : clean
 
 re :	fclean ${NAME}
 
-# test :
-# 	clear
-# 	${CC} ${Cflags} -c main.c -o main.o
-# 	${CC} ${Cflags} -o main main.o -L. -lft -lbsd
-# 	@echo "\n======================[   tests    ]======================"
-# 	@./main
-# 	@echo "\n======================[ all done ! ]======================"
+bonus : ${OBJS}
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+# Uncomment the lines below if you want to build a shared library
+# so :
+# 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(OBJS)
+# 	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re bonus so
+

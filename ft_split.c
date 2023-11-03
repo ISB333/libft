@@ -6,19 +6,22 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:08:46 by adesille          #+#    #+#             */
-/*   Updated: 2023/11/02 19:04:48 by adesille         ###   ########.fr       */
+/*   Updated: 2023/11/03 17:17:08 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// static void	freememory(char **array)
+// static void	freememory(char **array, size_t j)
 // {
-// 	int i;
+// 	int	i;
 
-// 	i = 0;
-// 	while(array[i])
-// 		free(array[i++]);
+// 	i = (int)j;
+// 	while(i > 0)
+// 	{
+// 		free(array[i]);
+// 		i--;
+// 	}
 // 	free(array);
 // }
 
