@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 17:59:22 by adesille          #+#    #+#             */
-/*   Updated: 2023/11/03 17:33:08 by adesille         ###   ########.fr       */
+/*   Updated: 2023/11/03 18:46:36 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 static char	*find(const char *big, const char *little, size_t len, int lillen)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -46,8 +46,8 @@ static char	*find(const char *big, const char *little, size_t len, int lillen)
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int		lillen;
-	int i;
+	int	lillen;
+	int	i;
 
 	i = 0;
 	lillen = ft_strlen(little);

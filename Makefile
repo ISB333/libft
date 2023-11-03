@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adesille <adesille@student.42.fr>          +#+  +:+       +#+         #
+#    By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 09:53:02 by adesille          #+#    #+#              #
-#    Updated: 2023/11/03 17:06:08 by adesille         ###   ########.fr        #
+#    Updated: 2023/11/03 18:56:00 by isb3             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 		ft_itoa.c
 
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
-		ft_lstlast.c
+		ft_lstlast.c ft_lstadd_back.c
 
 OBJS = 	${SRCS:.c=.o} ${BONUS:.c=.o}
 
