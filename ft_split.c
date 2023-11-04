@@ -3,27 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
+/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 13:08:46 by adesille          #+#    #+#             */
-/*   Updated: 2023/11/03 17:17:08 by adesille         ###   ########.fr       */
+/*   Updated: 2023/11/04 16:15:21 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// static void	freememory(char **array, size_t j)
-// {
-// 	int	i;
+static void	freememory(char **array, size_t j)
+{
+	int	i;
 
-// 	i = (int)j;
-// 	while(i > 0)
-// 	{
-// 		free(array[i]);
-// 		i--;
-// 	}
-// 	free(array);
-// }
+	i = (int)j;
+	while(i > 0)
+	{
+		free(array[i]);
+		i--;
+	}
+	free(array);
+}
 
 static size_t	ft_del_rows(const char *s, int c)
 {
@@ -34,24 +34,23 @@ static size_t	ft_del_rows(const char *s, int c)
 	i = 0;
 	while (s[i])
 	{
-		while (s[i++] != c && s[i])
-		{
-			if (s[i] == c && s[i])
-				rows++;
-		}
-		if (s[i] == '\0' && s[i - 1] != c)
+		while (s[i] == c)
+			i++;
+		if (s[i])
 			rows++;
+		while (s[i] && s[i] != c)
+			i++;
 	}
-	if ((size_t)rows == ft_strlen(s))
-		return (0);
 	return (rows);
 }
 
-static char	**ft_cut(char **array, char const *s, char c, size_t i)
+static char	**ft_cut(char **array, const char *s, char c)
 {
-	size_t	k;
+	size_t	i;
 	size_t	j;
+	size_t	k;
 
+	i = 0;
 	j = 0;
 	while (s[i])
 	{
@@ -65,6 +64,8 @@ static char	**ft_cut(char **array, char const *s, char c, size_t i)
 			array[j] = ft_substr(s, k, i - k);
 			if (!array[j])
 			{
+				while (j-- > 0)
+					free(array[j]);
 				free(array);
 				return (NULL);
 			}
@@ -78,14 +79,14 @@ static char	**ft_cut(char **array, char const *s, char c, size_t i)
 char	**ft_split(char const *s, char c)
 {
 	char	**array;
-	size_t	i;
 
-	i = 0;
 	if (!s)
 		return (NULL);
+
 	array = (char **)malloc((ft_del_rows(s, c) + 1) * sizeof(char *));
 	if (!array)
 		return (NULL);
-	ft_cut(array, s, c, i);
+
+	array = ft_cut(array, s, c);
 	return (array);
 }

@@ -6,7 +6,7 @@
 #    By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 09:53:02 by adesille          #+#    #+#              #
-#    Updated: 2023/11/03 18:56:00 by isb3             ###   ########.fr        #
+#    Updated: 2023/11/04 16:07:51 by isb3             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 		ft_itoa.c
 
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
-		ft_lstlast.c ft_lstadd_back.c
+		ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
+		ft_lstclear.c ft_lstiter.c #ft_lstmap.c
 
 OBJS = 	${SRCS:.c=.o} ${BONUS:.c=.o}
 
