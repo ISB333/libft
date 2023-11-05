@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:05:19 by adesille          #+#    #+#             */
-/*   Updated: 2023/11/03 18:46:14 by isb3             ###   ########.fr       */
+/*   Updated: 2023/11/05 19:27:20 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*str;
 	int		size;
 
-	size = (ft_strlen(s));
 	if (s == NULL)
 		return (NULL);
+	size = (ft_strlen(s));
 	if (start >= ((unsigned int)size))
 		return (ft_strdup(""));
 	if (len > size - start)

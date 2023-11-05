@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adesille <adesille@student.42.fr>          +#+  +:+       +#+         #
+#    By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 09:53:02 by adesille          #+#    #+#              #
-#    Updated: 2023/11/05 14:53:54 by adesille         ###   ########.fr        #
+#    Updated: 2023/11/05 18:01:14 by isb3             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS =	ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 
 BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 		ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
-		ft_lstclear.c ft_lstiter.c #ft_lstmap.c
+		ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 OBJS = 	${SRCS:.c=.o} ${BONUS:.c=.o}
 
@@ -54,9 +54,9 @@ re :	fclean ${NAME}
 bonus : ${OBJS}
 
 # Uncomment the lines below if you want to build a shared library
-so :
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(OBJS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+# so :
+# 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(OBJS)
+# 	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .PHONY : all clean fclean re bonus so
 
