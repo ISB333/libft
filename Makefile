@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+         #
+#    By: adesille <adesille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 09:53:02 by adesille          #+#    #+#              #
-#    Updated: 2023/11/04 16:07:51 by isb3             ###   ########.fr        #
+#    Updated: 2023/11/05 14:53:54 by adesille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,9 +54,9 @@ re :	fclean ${NAME}
 bonus : ${OBJS}
 
 # Uncomment the lines below if you want to build a shared library
-# so :
-# 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(OBJS)
-# 	gcc -nostartfiles -shared -o libft.so $(OBJS)
+so :
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(OBJS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .PHONY : all clean fclean re bonus so
 

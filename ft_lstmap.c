@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:46:12 by isb3              #+#    #+#             */
-/*   Updated: 2023/11/04 16:07:13 by isb3             ###   ########.fr       */
+/*   Updated: 2023/11/05 16:20:03 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,17 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
+	t_list	*current;
+	t_list *new;
 
+	current = lst;
+	while (current)
+	{
+		new->content = f(current->content);
+		new->next = current->next;
+		if(!new)
+			del(new)
+		current = current->next;
+
+	}
 }
