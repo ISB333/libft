@@ -6,7 +6,7 @@
 #    By: adesille <adesille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 09:53:02 by adesille          #+#    #+#              #
-#    Updated: 2023/11/06 16:53:34 by adesille         ###   ########.fr        #
+#    Updated: 2023/11/06 17:08:21 by adesille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c \
 		ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
 		ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-OBJS = 	${SRCS:.c=.o} ${BONUS:.c=.o}
+OBJS = 	${SRCS:.c=.o} 
+OBJS_BONUS = ${BONUS:.c=.o}
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
@@ -40,18 +41,18 @@ all :	${NAME}
 ${NAME}:	${OBJS}
 		ar rcs ${NAME} ${OBJS}
 
+bonus : ${OBJS_BONUS}
+		ar rcs $(NAME) $(OBJS_BONUS)
+
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean :
-		${RM} ${OBJS}
+		${RM} ${OBJS} $(OBJS_BONUS)
 
 fclean : clean
 		${RM} ${NAME}
 
-re :	fclean ${NAME}
+re :	fclean all
 
-bonus : ${OBJS}
-
-.PHONY : all clean fclean re bonus so
-
+.PHONY : all clean fclean re bonus
