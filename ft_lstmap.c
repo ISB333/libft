@@ -6,7 +6,7 @@
 /*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 15:46:12 by isb3              #+#    #+#             */
-/*   Updated: 2023/11/05 19:09:14 by isb3             ###   ########.fr       */
+/*   Updated: 2023/11/05 20:09:17 by isb3             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		if (!new_node)
 		{
 			ft_lstclear(&new, del);
-			del(new_node->content); 
+			del(new_node->content);
 			return (NULL);
 		}
 		ft_lstadd_back(&new, new_node);
