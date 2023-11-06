@@ -6,7 +6,7 @@
 #    By: adesille <adesille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 09:53:02 by adesille          #+#    #+#              #
-#    Updated: 2023/11/06 16:46:18 by adesille         ###   ########.fr        #
+#    Updated: 2023/11/06 16:53:34 by adesille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,11 +52,6 @@ fclean : clean
 re :	fclean ${NAME}
 
 bonus : ${OBJS}
-
-# Uncomment the lines below if you want to build a shared library
-# so :
-# 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(OBJS)
-# 	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .PHONY : all clean fclean re bonus so
 
