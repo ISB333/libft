@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 16:49:21 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/27 00:41:17 by adesille         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:49:22 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 			return (ft_strdup(""));
 	return (ft_substr(s1, 0, len));
 }
-/*
-int	main(void)
-{
-	printf("%s\n", ft_strtrim("Yooo je m'appelle Yo, chablawi Yooo", "Yooo"));
-}
-*/

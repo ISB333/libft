@@ -3,23 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isb3 <isb3@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:05:19 by adesille          #+#    #+#             */
-/*   Updated: 2023/11/05 19:27:20 by isb3             ###   ########.fr       */
+/*   Updated: 2023/11/06 16:49:31 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-// 1 // Alocate memory
-// 2 // Copy from s[start] into str while len-- > 0
-// 3 // return str or NULL if allocation failed
-
-//###// Special Cases //###//
-// *1* // len = 0; || start = 0;
-// *2* // len > start || start > len
-// *3* //
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -40,11 +31,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[len] = '\0';
 	return (str);
 }
-/*
-int	main(void)
-{
-	printf("%s\n", ft_substr("YoMan", 2, 15));
-	printf("%s\n", ft_substr("", 0, 0));
-	printf("%s", ft_substr("Hola", 4294967295, 0));
-}
-*/

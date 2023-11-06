@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:14:51 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/22 16:47:26 by adesille         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:47:53 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,3 @@ void	*ft_memset(void *s, int c, size_t n)
 		((char *)s)[i++] = c;
 	return (s);
 }
-/*
-int	main(void)
-{
-	char	str[50];
-
-	strcpy(str, "This is string.h library function");
-	puts(str);
-	printf("%s", (char *) ft_memset(str, '$', 7));
-}
-*/

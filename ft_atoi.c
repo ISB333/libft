@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:09:02 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/21 17:53:31 by adesille         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:46:26 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,3 @@ int	ft_atoi(const char *nptr)
 		nbr = (nbr * 10) + ((nptr[i++]) - 48);
 	return (nbr * sign);
 }
-/*
-int	main(void)
-{
-	printf("%d\n", ft_atoi("   -333"));
-	printf("%d", atoi("  -333"));
-}
-*/

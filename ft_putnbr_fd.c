@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:11:00 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/27 18:34:41 by adesille         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:48:09 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(n / 10, fd);
 	ft_putchar(n % 10 + '0', fd);
 }
-/*
-int	main(void)
-{
-	ft_putnbr_fd(-2147483648, 1);
-}
-*/

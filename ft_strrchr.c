@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:59:40 by adesille          #+#    #+#             */
-/*   Updated: 2023/10/25 19:30:19 by adesille         ###   ########.fr       */
+/*   Updated: 2023/11/06 16:49:18 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,3 @@ char	*ft_strrchr(const char *s, int c)
 		return ((char *)&s[i]);
 	return (NULL);
 }
-/*
-int	main(void)
-{
-	printf("%s\n", ft_strrchr("SalutSalut", 'S'));
-	printf("%s", strrchr("SalutSalut", 'S'));
-}
-*/
