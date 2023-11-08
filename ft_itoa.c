@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 22:11:00 by adesille          #+#    #+#             */
-/*   Updated: 2023/11/02 19:05:43 by adesille         ###   ########.fr       */
+/*   Updated: 2023/11/08 12:24:38 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,3 @@ char	*ft_itoa(int n)
 		result = ft_putnbr_pos(n, digitlen);
 	return (result);
 }
-/*
-int main(void)
-{
-	printf("%s\n", ft_itoa(-5859));
-	printf("%s\n", ft_itoa(-369));
-	printf("%s\n", ft_itoa(-623));
-	printf("%s\n", ft_itoa(-0));
-}
-*/
