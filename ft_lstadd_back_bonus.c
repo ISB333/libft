@@ -6,7 +6,7 @@
 /*   By: adesille <adesille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:51:31 by isb3              #+#    #+#             */
-/*   Updated: 2023/11/08 12:31:37 by adesille         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:45:55 by adesille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*temp;
 
-	if (!*lst)
+	if (!*lst && !new)
 	{
 		*lst = new;
 		return ;
