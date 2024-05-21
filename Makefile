@@ -6,7 +6,7 @@
 #    By: adesille <adesille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/20 09:53:02 by adesille          #+#    #+#              #
-#    Updated: 2023/11/08 12:23:08 by adesille         ###   ########.fr        #
+#    Updated: 2024/05/21 12:14:15 by adesille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,10 +36,17 @@ RM = rm -f
 
 NAME = libft.a
 
+######################## LIBRARY ########################
+
+FT_PRINTF_DIR = ft_printf
+FT_PRINTF = $(FT_PRINTF_DIR)/libftft_printf.a
+
+######################## RULES ########################
+
 all :	${NAME}
 
-${NAME}:	${OBJS}
-		ar rcs ${NAME} ${OBJS}
+${NAME}:	${OBJS} $(FT_PRINTF)
+		ar rcs ${NAME} $(FT_PRINTF) ${OBJS}
 
 bonus : ${OBJS_BONUS}
 		ar rcs $(NAME) $(OBJS_BONUS)
@@ -47,8 +54,12 @@ bonus : ${OBJS_BONUS}
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(FT_PRINTF):
+	@$(MAKE) -C $(FT_PRINTF_DIR)
+
 clean :
 		${RM} ${OBJS} $(OBJS_BONUS)
+		$(MAKE) -C $(LIBFT_DIR) fclean
 
 fclean : clean
 		${RM} ${NAME}
